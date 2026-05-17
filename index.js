@@ -19,7 +19,7 @@ client.on("message", async (ctx) => {
                 //const channel = client.channels.cache.get(ctx.channelId);
                 //channel.sendSlash(disboard_bot, "bump");
 
-            if (ctx.content.startsWith("<@1289995374953762858>")) {
+            if (ctx.content.startsWith(`<@${process.env.CLIENTID}>`)) {
                 const channel = client.channels.cache.get(ctx.channelId);
                 channel.sendSlash(disboard_bot, "bump");
                 console.log("bump");
