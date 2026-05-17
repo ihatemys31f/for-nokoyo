@@ -1,4 +1,4 @@
-const { Client, MessageEmbed, WebEmbed } = require('discord.js-selfbot-v13');
+const { Client } = require('discord.js-selfbot-v13');
 const client = new Client();
 require('dotenv').config()
 
