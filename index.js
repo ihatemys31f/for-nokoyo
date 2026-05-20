@@ -5,7 +5,7 @@ require('dotenv').config()
 let disboard_bot = "302050872383242240"
 let fibo_bot = "735147814878969968"
 let channelId = "1487908618622730430"
-let tester = ""
+let tester = "615855594053828628"
 
 
 client.on('ready', async () => {
@@ -27,12 +27,12 @@ client.on("message", async (ctx) => {
             }
         }
         if (ctx.author.id === tester) {
-            if (ctx.content('krystyna test')) {
+            if (ctx.content === 'krystyna test') {
                 console.log("test");
                 const channel = client.channels.cache.get(ctx.channelId);
                 channel.send('working');
             }
-            if (ctx.content('krystyna bump')) {
+            if (ctx.content === 'krystyna bump') {
                 console.log("manual bump");
                 const channel = client.channels.cache.get(ctx.channelId);
                 channel.sendSlash(disboard_bot, "bump");
