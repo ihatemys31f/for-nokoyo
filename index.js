@@ -12,7 +12,25 @@ client.on('ready', async () => {
   console.log(`${client.user.username} is ready!`);
   const channel = client.channels.cache.get(channelId);
   channel.send("online!");
+  StartUptimeKumaHeartBeat();
 })
+
+function StartUptimeKumaHeartBeat() {
+    const pushURL = "https://uptime.wodzyn.pl/api/push/BvpuoKzyIlvqZ3i8JvNumJNvQm5Ukzwi?status=up&msg=OK&ping=";
+    const interval = 60;
+
+    const push = async () => {
+        try {
+            await fetch(pushURL);
+            console.log("Uptime Kuma push: OK");
+        } catch (err) {
+            console.error("Uptime Kuma push failed:", err);
+        }
+    };
+
+    push();
+    setInterval(push, interval * 1000);
+}
 
 client.on("message", async (ctx) => {
     if (ctx.channelId === channelId) {
